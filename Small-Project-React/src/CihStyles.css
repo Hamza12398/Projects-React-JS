@@ -18,7 +18,7 @@ body {
 }
 
 #modal {
-  background: rgba(0, 0, 0, 0.60);
+  background: rgba(0, 0, 0, 0.6);
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -28,7 +28,10 @@ body {
 }
 
 #modal-content {
-  color: #94A684;
+  color: #94a684;
+  background: wheat;
+  width: 50%;
+  border-radius: 30px;
 }
 
 hr {
@@ -47,6 +50,7 @@ label {
   padding: 10px;
   border-radius: 10px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 input,
@@ -55,4 +59,7 @@ select {
   border: none;
   border-radius: 3px;
   height: 20px;
+}
+.disable {
+  background: gray !important;
 }
