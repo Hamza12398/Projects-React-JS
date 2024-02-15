@@ -4,8 +4,8 @@ import CihForm from "./CihForm";
 
 function App() {
   return (
-    <div className="App" style={{ marginTop: "100px"}}>
-      <CihForm />
+    <div className="App" style={{ marginTop: "100px" }}>
+      <CihForm  title="Your Information"/>
     </div>
   );
 }

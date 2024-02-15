@@ -2,7 +2,8 @@ import "./CihStyles.css";
 import Modal from "./Modal";
 import { useState } from "react";
 
-export default function CihForm() {
+export default function CihForm({title}) {
+  const [errorMessage, setErrorMessage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [cihInput, setCihInput] = useState({
     name: "",
@@ -16,6 +17,13 @@ export default function CihForm() {
 
   function handlBtn(event) {
     event.preventDefault();
+    setErrorMessage(null);
+    let { age, phoneNumber } = cihInput;
+    if (age < 18 || age > 100) {
+      setErrorMessage("The age is Not Allowed");
+    } else if (phoneNumber.length < 10 || phoneNumber.length > 12) {
+      setErrorMessage("The Phone Number is Not Allowed");
+    }
     setShowModal(true);
   }
 
@@ -31,6 +39,7 @@ export default function CihForm() {
       className="flex"
       style={{ flexDirection: "column" }}
     >
+      <h1>{title}</h1>
       <form id="cih-form" className="flex" style={{ flexDirection: "column" }}>
         <h1 style={{ fontSize: "40px" }}>Requesting a CIH</h1>
         <hr></hr>
@@ -89,7 +98,7 @@ export default function CihForm() {
           Submit
         </button>
       </form>
-      <Modal isVisible={showModal} />
+      <Modal errorMessage={errorMessage} isVisible={showModal} />
     </div>
   );
 }
